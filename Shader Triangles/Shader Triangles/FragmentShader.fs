@@ -1,8 +1,13 @@
 #version 450 core
 
-out vec4 color;
+in vec3 fragColor; 
 
-void main(void)
-{
-	color = vec4(0.0, 0.8, 1.0, 1.0);
+out vec4 color; 
+
+uniform float currentTime;
+
+void main()
+{ 
+	vec3 colorTemp = fragColor * abs(sin(currentTime)); 
+	color = vec4(colorTemp, 1.0); 
 }
