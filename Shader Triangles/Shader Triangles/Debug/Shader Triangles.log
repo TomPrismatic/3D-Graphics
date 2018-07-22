@@ -1,0 +1,9 @@
+﻿  Main.cpp
+d:\users\thomas.she7816\source\repos\shader triangles\shader triangles\main.cpp(22): error C2664: 'GLuint ShaderLoader::CreateProgram(char *,char *)': cannot convert argument 1 from 'const char [16]' to 'char *'
+  d:\users\thomas.she7816\source\repos\shader triangles\shader triangles\main.cpp(22): note: Conversion from string literal loses const qualifier (see /Zc:strictStrings)
+  ShaderLoader.cpp
+d:\users\thomas.she7816\source\repos\shader triangles\shader triangles\shaderloader.cpp(65): error C2664: 'GLuint ShaderLoader::CreateShader(GLenum,std::string,char *)': cannot convert argument 3 from 'const char [14]' to 'char *'
+  d:\users\thomas.she7816\source\repos\shader triangles\shader triangles\shaderloader.cpp(65): note: Conversion from string literal loses const qualifier (see /Zc:strictStrings)
+d:\users\thomas.she7816\source\repos\shader triangles\shader triangles\shaderloader.cpp(66): error C2664: 'GLuint ShaderLoader::CreateShader(GLenum,std::string,char *)': cannot convert argument 3 from 'const char [16]' to 'char *'
+  d:\users\thomas.she7816\source\repos\shader triangles\shader triangles\shaderloader.cpp(66): note: Conversion from string literal loses const qualifier (see /Zc:strictStrings)
+  Generating Code...
