@@ -10,9 +10,12 @@ GLuint VAO;
 GLfloat vertices[] = { // Position 
 	-0.5f, -0.5f, 0.0f, 1.0f, 0.0f, 0.0f, // Left 
 	0.5f, -0.5f, 0.0f, 0.0f, 1.0f, 0.0f, // Right 
-	0.0f, 0.5f, 0.0f, 0.0f, 0.0f, 1.0f   // Top   
-};
+	0.5f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f,   // Top   
 
+	-0.5f, 0.f, 0.0f, 0.0f, 1.0f, 0.0f, // Left 
+	-0.5f, -0.5f, 0.0f, 1.0f, 0.0f, 0.0f, // Right 
+	0.5f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f   // Top   
+};
 
 void render()
 {
@@ -21,7 +24,7 @@ void render()
 
 	glUseProgram(program);
 	glBindVertexArray(VAO); // Bind VAO 
-	glDrawArrays(GL_TRIANGLES, 0, 3); //GL_POINTS, GL_LINES
+	glDrawArrays(GL_TRIANGLES, 0, 6); //GL_POINTS, GL_LINES
 	glBindVertexArray(0); // Unbind VAO
 
 
@@ -31,14 +34,15 @@ void render()
 void init() 
 {
 	ShaderLoader shaderLoader; 
-	const char* pointer = "VertexShader.vs";
 	program = shaderLoader.CreateProgram("VertexShader.vs", "FragmentShader.fs");
 	glGenVertexArrays(1, &VAO);
 	glBindVertexArray(VAO); 
 	glGenBuffers(1, &VBO);
 	glBindBuffer(GL_ARRAY_BUFFER, VBO);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(GLfloat), (GLvoid*)(3 * sizeof(GLfloat)));;
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(GLfloat), (GLvoid*)0);
+	glEnableVertexAttribArray(0);
+	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(GLfloat), (GLvoid*)(3 * sizeof(GLfloat)));
 	glEnableVertexAttribArray(1);
 
 }
@@ -46,6 +50,10 @@ void init()
 void Update()
 {
 	glutPostRedisplay();
+	GLfloat currentTime = glutGet(GLUT_ELAPSED_TIME);// Get current time. 
+	currentTime = currentTime / 1000;  // Convert millisecond to seconds
+	GLint currentTimeLoc = glGetUniformLocation(program, "currentTime"); glUniform1f(currentTimeLoc, currentTime);
+
 }
 
 int main(int argc, char **argv) {
