@@ -6,6 +6,8 @@
 GLuint program;
 GLuint VBO;
 GLuint VAO;
+GLuint EBO;
+GLuint tex;
 
 GLfloat vertices[] = { // Position 
 	-0.5f, -0.5f, 0.0f, 1.0f, 0.0f, 0.0f, // Left 
@@ -17,6 +19,11 @@ GLfloat vertices[] = { // Position
 	0.5f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f   // Top   
 };
 
+GLuint indices[] = 
+{	0, 1, 2, // First Triangle
+	0, 2, 3  // Second Triangle
+};
+
 void render()
 {
 	glClear(GL_COLOR_BUFFER_BIT);
@@ -24,7 +31,7 @@ void render()
 
 	glUseProgram(program);
 	glBindVertexArray(VAO); // Bind VAO 
-	glDrawArrays(GL_TRIANGLES, 0, 6); //GL_POINTS, GL_LINES
+	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 	glBindVertexArray(0); // Unbind VAO
 
 
@@ -44,7 +51,9 @@ void init()
 	glEnableVertexAttribArray(0);
 	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(GLfloat), (GLvoid*)(3 * sizeof(GLfloat)));
 	glEnableVertexAttribArray(1);
-
+	glGenBuffers(1, &EBO);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
 }
 
 void Update()
