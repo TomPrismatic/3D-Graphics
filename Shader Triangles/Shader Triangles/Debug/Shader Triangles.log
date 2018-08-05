@@ -1,3 +1,8 @@
 ﻿  Main.cpp
-d:\users\thomas.she7816\documents\github\paint-tool\3d-graphics\shader triangles\shader triangles\main.cpp(61): warning C4244: 'initializing': conversion from 'int' to 'GLfloat', possible loss of data
-  Shader Triangles.vcxproj -> D:\Users\thomas.she7816\Documents\GitHub\Paint-Tool\3D-Graphics\Shader Triangles\Debug\Shader Triangles.exe
+c:\users\oem\documents\github\3d-graphics\shader triangles\shader triangles\main.cpp(29): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
+c:\users\oem\documents\github\3d-graphics\shader triangles\shader triangles\main.cpp(23): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\oem\documents\github\3d-graphics\shader triangles\shader triangles\main.cpp(25): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\oem\documents\github\3d-graphics\shader triangles\shader triangles\main.cpp(26): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\oem\documents\github\3d-graphics\shader triangles\shader triangles\main.cpp(28): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\oem\documents\github\3d-graphics\shader triangles\shader triangles\main.cpp(138): warning C4244: '=': conversion from 'int' to 'GLfloat', possible loss of data
+  Shader Triangles.vcxproj -> C:\Users\OEM\Documents\GitHub\3D-Graphics\Shader Triangles\Debug\Shader Triangles.exe
