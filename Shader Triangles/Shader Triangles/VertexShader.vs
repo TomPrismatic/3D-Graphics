@@ -11,14 +11,12 @@ out vec2 fragTexCoord;
 
 void main() 
 {
-	if (color.xyz == 1.0)
+	if (color.r == 1.0f && color.g == 1.0f && color.b == 1.0f)
 	{
 		vec3 updatingPosition = position * 0.6;
 		updatingPosition.x = updatingPosition.x + (sin(currentTime) / 2);
 		updatingPosition.y = updatingPosition.y + (cos(currentTime) / 2);
 		gl_Position = vec4(updatingPosition, 1.0);
-		fragColor = color; 
-		
 	}
 
 	else
@@ -27,8 +25,7 @@ void main()
 		scaledPosition.x = scaledPosition.x - (sin(currentTime) / 2);
 		scaledPosition.y = scaledPosition.y - (cos(currentTime) / 2);
 		gl_Position = vec4(scaledPosition, 1.0);
-		fragColor = color; 
 	}
-
+	fragColor = color; 
 	fragTexCoord = texCoord;
 }
